@@ -2,53 +2,65 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Perfil do Cliente</title>
+  <title>Perfil - Kaio Store</title>
+  <script defer src="script.js"></script>
   <style>
     body {
-      background: #0f0f0f;
-      color: white;
+      margin: 0;
       font-family: Arial;
-      text-align: center;
-      padding: 30px;
+      background: radial-gradient(circle, #0a0f1f, #000);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
     }
 
     .card {
-      background: #1a1a1a;
-      padding: 20px;
-      border-radius: 15px;
-      max-width: 300px;
-      margin: auto;
-      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+      background: #111;
+      padding: 30px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 0 30px rgba(0, 140, 255, 0.3);
+      width: 300px;
     }
 
     img {
       width: 100px;
-      height: 100px;
       border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 10px;
+      border: 3px solid gold;
+    }
+
+    h1 {
+      margin: 10px 0;
     }
 
     .vip {
-      background: gold;
-      color: black;
-      padding: 5px 10px;
+      color: gold;
+      margin: 10px 0;
+    }
+
+    .box {
+      margin-top: 15px;
+      padding: 10px;
       border-radius: 10px;
-      display: inline-block;
-      margin-top: 10px;
-      font-weight: bold;
+      background: #0d1b2a;
+      box-shadow: 0 0 10px rgba(0, 140, 255, 0.4);
     }
   </style>
 </head>
 <body>
 
-  <div class="card">
-    <img id="avatar" src="">
-    <h2 id="nome">Carregando...</h2>
-    <p id="gasto"></p>
-    <div id="vip"></div>
-  </div>
+<div class="card">
+  <img id="avatar">
+  <h1 id="nome">...</h1>
+  <div class="vip" id="vip">VIP: ...</div>
 
-<script src="script.js"></script>
+  <div class="box">
+    Total gasto:<br>
+    <strong id="gasto">R$0</strong>
+  </div>
+</div>
+
 </body>
 </html>
