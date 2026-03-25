@@ -1,23 +1,17 @@
-const params = new URLSearchParams(window.location.search);
+const url = new URL(window.location.href);
 
-const nome = params.get("nome");
-const avatar = params.get("avatar");
-const gasto = Number(params.get("gasto"));
+const nome = url.searchParams.get("nome") || "Cliente";
+const gasto = Number(url.searchParams.get("gasto")) || 0;
+const avatar = url.searchParams.get("avatar") || "https://cdn.discordapp.com/embed/avatars/0.png";
 
-document.getElementById("nome").innerText = nome || "Cliente";
-document.getElementById("avatar").src = avatar || "https://cdn.discordapp.com/embed/avatars/0.png";
-document.getElementById("gasto").innerText = "Total gasto: R$" + (gasto || 0);
+// VIP automático
+let vip = "Bronze";
 
-let vip = "";
+if (gasto >= 1000) vip = "Diamante";
+else if (gasto >= 500) vip = "Ouro";
+else if (gasto >= 100) vip = "Prata";
 
-if (gasto >= 50) {
-  vip = "VIP GOLD";
-} else if (gasto >= 20) {
-  vip = "VIP SILVER";
-} else if (gasto >= 10) {
-  vip = "VIP BRONZE";
-}
-
-if (vip) {
-  document.getElementById("vip").innerHTML = `<div class="vip">${vip}</div>`;
-}
+document.getElementById("nome").innerText = nome;
+document.getElementById("gasto").innerText = "R$" + gasto;
+document.getElementById("avatar").src = avatar;
+document.getElementById("vip").innerText = "VIP: " + vip;
